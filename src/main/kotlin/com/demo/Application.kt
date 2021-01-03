@@ -73,13 +73,3 @@ data class BusinessSupplier(
     val comment: String = ""
 ) : SupplierI(id, type)
 
-fun main() {
-    ObjectMapper().findAndRegisterModules().readValue<SupplierI>("""
-        {
-          "name": "Peter",
-          "type": "business",
-          "website": "test.de",
-          "comment": "jo"
-        }
-    """.trimIndent(), SupplierI::class.java).also { println(it::class) }
-}
